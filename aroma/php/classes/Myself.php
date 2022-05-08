@@ -10,16 +10,15 @@ class Person
     private $brother;
     private $hp;
 
-    function __construct($name, $lastname, $age, $mother = null, $father = null)
-    //$sister, $brother = null)
+    function __construct($name, $lastname, $age, $mother = null, $father = null, $sister = null, $brother = null)
     {
         $this->name = $name;
         $this->lastname = $lastname;
         $this->age = $age;
         $this->mother = $mother;
         $this->father = $father;
-        //$this->sister = $sister;
-        //$this->brother = $brother;
+        $this->sister = $sister;
+        $this->brother = $brother;
         $this->hp = 100;
     }
     function sayHi($name)
@@ -81,8 +80,8 @@ $tatyana = new Person("Tatyana", "Masalova", 63); //Бабушка
 $maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
 $lyubov = new Person("Lyubov", "Masalova", 39, $tatyana, $evgeny);
 $kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim);
-// $vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
-// $gleb = new Person("Gleb", "Utkin", 5, $lyubov, $maksim, $kira, $vika);
+$vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
+$gleb = new Person("Gleb", "Utkin", 5, $lyubov, $maksim, $kira, $vika);
 
 echo $kira->getInfo();
 
