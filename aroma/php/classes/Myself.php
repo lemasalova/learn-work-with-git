@@ -80,7 +80,7 @@ $evgeny = new Person("Evgeny", "Masalov", 63); //Дедушка
 $tatyana = new Person("Tatyana", "Masalova", 63); //Бабушка
 
 
-$maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
+// $maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
 $lyubov = new Person("Lyubov", "Masalova", 39, $tatyana, $evgeny);
 $kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim, $vika, $gleb);
 $vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
