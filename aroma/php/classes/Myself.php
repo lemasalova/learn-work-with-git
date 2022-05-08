@@ -6,19 +6,21 @@ class Person
     private $age;
     private $mother;
     private $father;
-    private $sister;
-    private $brother;
+    // private $sister;
+    // private $brother;
     private $hp;
 
-    function __construct($name, $lastname, $age, $mother = null, $father = null,  $sister, $brother = null)
+    function __construct($name, $lastname, $age, $mother = null, $father = null)
+
+    //  $sister, $brother = null)
     {
         $this->name = $name;
         $this->lastname = $lastname;
         $this->age = $age;
         $this->mother = $mother;
         $this->father = $father;
-        $this->sister = $sister;
-        $this->brother = $brother;
+        // $this->sister = $sister;
+        // $this->brother = $brother;
         $this->hp = 100;
     }
     function sayHi($name)
@@ -51,27 +53,24 @@ class Person
         return $this->father;
     }
 
-    function getSister()
-    {
-        return $this->sister;
-    }
-    function getBrother()
-    {
-        return $this->brother;
-    }
+    // function getSister()
+    // {
+    //     return $this->sister;
+    // }
+    // function getBrother()
+    // {
+    //     return $this->brother;
+    // }
 
     function getInfo()
     {
-        return $this->getBrother;
+        return "<h3>A few words about myself:</h3><br>" . "My name is: " . $this->getName() . "<br> my lastname is: " . $this->getLastname() .
+            "<br> my father is: " . $this->getFather()->getName() . "<br> my mother is: " . $this->getMother()->getName() . "<br> my 
+                grandmother is: " . $this->getMother()->getMother()->getName() . "<br> my grandfathers is: " . $this->getMother()->getFather()
+            ->getName() . " and " . $this->getFather()->getFather()->getName();
 
-        //     return "
-        //     <h3>A few words about myself:</h3><br>" . "My name is: " . $this->getName() . "<br> my lastname is: " . $this->getLastname() .
-        //         "<br> my father is: " . $this->getFather()->getName() . "<br> my mother is: " . $this->getMother()->getName() . "<br> my 
-        //     grandmother is: " . $this->getMother()->getMother()->getName() . "<br> my grandfathers is: " . $this->getMother()->getFather()
-        //         ->getName() . " and " . $this->getFather()->getFather()->getName();
-
-        //     // . "<br> my sister and brother: " . $this->getSister()
-        //     // ->getName() . " and " . $this->getBrother()->getName();
+        // . "<br> my sister and brother: " . $this->getSister()
+        // ->getName() . " and " . $this->getBrother()->getName();
     }
 }
 //Здоровье человека не может быть больше 100.
@@ -80,13 +79,13 @@ $evgeny = new Person("Evgeny", "Masalov", 63); //Дедушка
 $tatyana = new Person("Tatyana", "Masalova", 63); //Бабушка
 
 
-// $maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
+$maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
 $lyubov = new Person("Lyubov", "Masalova", 39, $tatyana, $evgeny);
-$kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim, $vika, $gleb);
-$vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
+$kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim);
+// $vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
 // $gleb = new Person("Gleb", "Utkin", 5, $lyubov, $maksim, $kira, $vika);
 
-// echo $kira->getInfo();
+echo $kira->getInfo();
 
 
 
