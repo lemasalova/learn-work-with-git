@@ -7,27 +7,39 @@
     <title>Diplom</title>
   </head>
   <style>
-    .my-1 {
-      position: absolute;
-      width: 870px;
-      height: 224px;
-      left: 165px;
-      top: 144px;
+    body {
+      margin: 0;
     }
-    h1 {
+
+    /* Хедер */
+    .header {
+      /* установим высоту ВРЕМЕННО! */
+      height: 96px;
+      background-color: gray;
+    }
+
+    /* Блок Херо */
+    .my-hero-title {
       font-family: "New York Extra Large";
       font-style: normal;
       font-weight: 700;
       font-size: 112px;
       line-height: 100%;
-      /* or 112px */
-      letter-spacing: -0.04em;
       text-align: left;
+
+      margin-top: 48px;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 0;
     }
-    .colortext {
+    .my-hero-title-accent {
       color: red;
     }
-    .col-1 {
+    .my-hero-content {
+      margin-top: 48px;
+      display: flex;
+    }
+    .my-hero-content-col-1 {
       /* position: absolute; */
       width: 290px;
       height: 130px;
@@ -35,46 +47,60 @@
       top: 424px;
       text-align: left;
     }
-    h2 {
+    .my-hero-content-text {
       font-family: "SF UI Display";
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
       line-height: 160%;
-      /* or 26px */
-
-      letter-spacing: 0.01em;
     }
-    .but-1 {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    .my-hero-content-button-wrap {
+      margin-top: 48px;
+    }
+    .my-hero-content-img {
+      width: 100%;
+    }
+
+    /* Переиспользуемые элементы */
+    .my-container {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1110px;
+    }
+
+    .my-button {
       padding: 8px 32px;
-      width: 179px;
-      height: 56px;
-      left: 165px;
-      top: 602px;
       background: #fd665e;
       border-radius: 4px;
+      border: 0;
+      color: #fff;
+      min-height: 56px;
     }
   </style>
   <body>
-    <div class="container my-1">
-      <h1>
+    <div class="header">Это временный хедер</div>
+    <div class="my-container">
+      <h1 class="my-hero-title">
         Build Your <br />
-        Dream <span class="colortext">House</span>
+        Dream <span class="my-hero-title-accent">House</span>
       </h1>
-      <div class="container my-2">
-        <div class="row">
-          <div class="col-1">
-            <h2>
-              The first and most trusted marketplace of design & build house in
-              The World. 100% guaranteed Build safe, comfortable and transparent
-              with a project management for the best result
-            </h2>
-            <button class="but-1">Free Consultation</button>
+      <div class="my-hero-content">
+        <div class="my-hero-content-col-1">
+          <p class="my-hero-content-text">
+            The first and most trusted marketplace of design & build house in
+            The World. 100% guaranteed Build safe, comfortable and transparent
+            with a project management for the best result
+          </p>
+          <div class="my-hero-content-button-wrap">
+            <button class="my-button">Free Consultation</button>
           </div>
-          <div class="col-2"></div>
+        </div>
+        <div class="">
+          <img
+            class="my-hero-content-img"
+            src="/Дипломная работа/img/Rectangle 1.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
