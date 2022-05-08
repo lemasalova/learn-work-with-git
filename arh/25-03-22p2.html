@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Медиазапросы</title>
+    <style>
+      .container {
+        width: 1200px;
+        margin: auto;
+      }
+      .block {
+        display: inline-block;
+        width: 400px;
+      }
+      .invisible-block {
+        display: none;
+      }
+      @media (max-width: 991px) {
+        .container {
+          width: 100%;
+        }
+        .block {
+          display: block;
+          width: 100%;
+          font-size: 1.2rem;
+        }
+        .block img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+      @media (max-width: 420px) {
+        .invisible-block {
+          display: block;
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="block">
+        <img
+          src="/img/hd-images-nature-pc-1920x1080-wallpaper-preview.jpg"
+          alt=""
+          width="400"
+        />
+      </div>
+      <div class="block">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+        molestiae itaque voluptatibus nulla in! Molestiae, similique. Alias
+        similique voluptates quia corporis. Consequatur maxime officia non
+        animi.
+      </div>
+      <div class="invisible-block">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
+        deserunt officia maxime aut architecto inventore tempore incidunt.
+        Placeat, provident excepturi! Facere sapiente voluptatibus quas minima
+        cumque veritatis molestias. Rerum, necessitatibus.
+      </div>
+    </div>
+  </body>
+</html>

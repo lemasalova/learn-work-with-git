@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача 1</title>
+  </head>
+  <body>
+    <script>
+      // Программа хранит в двух переменных курс доллара и евро. В первой переменной у вас хранится стоимость одного евро в рублях
+      // во второй - стоимость одного доллара в рублях
+      let dollar = 84.3;
+      let euro = 94.5;
+
+      // Вы спрашиваете у пользователя, сколько рублей он хочет сконвертировать,
+      // получаете это число и считаете (не забываем про дробную часть в корректном отображении)
+      let result = prompt("Введите сумму в рублях");
+
+      // TODO: тут будет 1.1862396204033214 а надо 1.18s
+      let resultDollar = parseInt((result / dollar) * 100) / 100;
+      let resultEuro = parseInt((result / euro) * 100) / 100;
+
+      let response =
+        "Вы получите: " +
+        resultDollar +
+        " долларов. Или " +
+        resultEuro +
+        " евро";
+
+      // Результат надо вывести на страницу с помощью alert.
+      alert(response);
+    </script>
+  </body>
+</html>

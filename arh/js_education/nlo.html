@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Взаимодействие с DOM</title>
+    <style>
+      #nloImg {
+        position: absolute;
+      }
+      #boxImg {
+        position: absolute;
+        /* visibility: hidden; */
+        margin-top: 80px;
+        /* margin-left: 50%; */
+      }
+      /* .my-position {
+        position: relative;
+      } */
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="/img/Vp3M.gif" alt="НЛО" id="nloImg" />
+    </div>
+    <div class="my-position">
+      <img src="/img/box1 1.png" alt="Коробка" id="boxImg" />
+    </div>
+
+    <script>
+      let nloImg = document.getElementById("nloImg");
+      let step = 0;
+      let flag = true;
+
+      function animationNlo() {
+        if (window.innerWidth - 90 > step && flag) {
+          nloImg.style.transform = "scaleX(1)";
+          step += 1;
+        } else {
+          nloImg.style.transform = "scaleX(-1)";
+          step -= 1;
+          flag = step == 0 ? true : false;
+        }
+
+        if (Math.round(window.innerWidth / 2 == step + 200)) {
+          console.log("Сбрасываю груз");
+        }
+        nloImg.style.left = step + "px";
+      }
+
+      let boxImg = document.getElementById("boxImg");
+      let pictureHeight = boxImg.getBoundingClientRect().height;
+      let stepBox = 0;
+      let flagBox = true;
+      let holdBox = true;
+      let dropHeightBox = 0;
+
+      boxImg.style.opacity = 0;
+
+      function animationBox() {
+        if (holdBox) {
+          if (window.innerWidth - 200 > stepBox && flagBox) {
+            boxImg.style.transform = "scaleX(1)";
+            stepBox += 1;
+          } else {
+            boxImg.style.transform = "scaleX(-1)";
+            stepBox -= 1;
+            flagBox = stepBox == 0 ? true : false;
+          }
+
+          let isCenterScreen = stepBox > window.innerWidth / 2;
+
+          if (isCenterScreen) {
+            console.log("Сбрасываю груз");
+            holdBox = false;
+            boxImg.style.opacity = 1;
+          }
+
+          boxImg.style.left = stepBox + "px";
+        } else {
+          if (dropHeightBox + pictureHeight + 250 < window.innerHeight) {
+            dropHeightBox += 2;
+            boxImg.style.top = dropHeightBox + "px";
+          }
+        }
+      }
+
+      setInterval(animationBox, 10);
+      setInterval(animationNlo, 10);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,900&display=swap"
+      rel="stylesheet"
+    /> -->
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link
+      href="/your-path-to-fontawesome/css/fontawesome.css"
+      rel="stylesheet"
+    />
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/127d9aafe2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Моя страница</title>
+
+    <style>
+      *,
+      html,
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+
+      .box {
+        height: 300px;
+        background-color: blueviolet;
+      }
+      .news {
+        background-image: url(/img/004.jpg);
+        background-size: cover;
+        height: 20rem;
+        background-position: center;
+      }
+      .news-box {
+        margin: auto;
+        max-width: 15rem;
+        height: auto;
+        border: 1px solid blueviolet;
+        padding: 0.5rem;
+        border-radius: 5px;
+        background-color: rgba(255, 140, 0, 0.55);
+        box-shadow: 0 0 10px 10px rgba(255, 160, 40, 0.45);
+      }
+      .box-1 {
+        height: 10px;
+      }
+      .user-icon {
+        background: radial-gradient(
+          circle,
+          rgba(131, 58, 180, 1) 0%,
+          rgba(253, 29, 29, 1) 50%,
+          rgba(252, 176, 69, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .no-border {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #2b86c9"
+    >
+      <a class="navbar-brand" href="index.html">Моя домашняя страница</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Переключатель навигации"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="contacts.html"
+              >Главная <span class="sr-only">(текущая)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="traffic_light.html">Светофор</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bootstrap.html">Bootstrap</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Поиск"
+            aria-label="Поиск"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Поиск
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/img/slaider-1.jpg" class="d-block w-100" alt="Горы" />
+        </div>
+        <div class="carousel-item">
+          <img src="/img/slaider-2.jpg" class="d-block w-100" alt="Озеро" />
+        </div>
+        <div class="carousel-item">
+          <img src="/img/slaider-3.jpg" class="d-block w-100" alt="Лес" />
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleControls"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleControls"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+      </a>
+    </div>
+
+    <!-- Container icon start -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-4 p-5">
+          <div class="card text-center border primary py-5 bg-warning">
+            <a href="/traffic_light.html"
+              ><i class="fa-solid fa-traffic-light fa-10x"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col-md-4 p-5">
+          <div class="card text-center border primary py-5 bg-warning">
+            <i class="fa-solid fa-robot fa-10x"></i>
+          </div>
+        </div>
+        <div class="col-md-4 p-5">
+          <div class="card text-center border primary py-5 bg-warning">
+            <i class="fa-solid fa-mug-saucer fa-10x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container icon end -->
+
+    <!-- Box-container start -->
+    <div class="container">
+      <div class="row">
+        <div class="col md-4 p-4 border"><div class="box"></div></div>
+        <div class="col md-4 p-4 border"><div class="box"></div></div>
+        <div class="col md-4 p-4 border"><div class="box"></div></div>
+      </div>
+    </div>
+    <!-- Box-container end -->
+
+    <!-- News box start -->
+    <div class="container-fluid mt-5 d-flex news">
+      <div class="news-box">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
+        impedit asperiores ipsam odit numquam laudantium, nisi sunt neque
+        perspiciatis rem similique id vel obcaecati assumenda excepturi
+        voluptatem, commodi nemo quod?
+      </div>
+    </div>
+    <!-- News box end -->
+
+    <!-- Contacts box start -->
+    <div class="container">
+      <h2 class="text-center">Связаться с нами</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Контакты</h3>
+          <h5>Адрес</h5>
+          <p>г. Москва, ул. Академика Скрябина, д. 9, стр. 4</p>
+          <h5>Телефон</h5>
+          <a href="tel:+7452605289">+74952605289</a>
+          <h5>E-mail</h5>
+          <a href="mailto:hotline@eduprof.ru">hotline@eduprof.ru</a>
+          <h5>График работы</h5>
+          <p>
+            Понедельник - четверг: с 8-30 по 17-15, пятница: с 8-30 по 16-00;
+            обучение по графику в субботу.
+          </p>
+        </div>
+
+        <div class="col-md-8">
+          <form action="">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Имя" />
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="E-mail" />
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Сообщение"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-danger" />
+            </div>
+          </form>
+          <!-- Contacts box start -->
+
+          <div class="row row-cols-5">
+            <div class="col card text-center no-border">
+              <i class="fa-solid fa-baseball fa-5x user-icon"></i>
+            </div>
+            <div class="col card text-center no-border">
+              <i class="fa-solid fa-apple-whole fa-5x user-icon"></i>
+            </div>
+            <div class="col card text-center no-border">
+              <i class="fa-solid fa-atom fa-5x user-icon"></i>
+            </div>
+            <div class="col card text-center no-border">
+              <i class="fa-solid fa-baby-carriage fa-5x user-icon"></i>
+            </div>
+            <div class="col card text-center no-border">
+              <i class="fa-solid fa-crow fa-5x user-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map block cart start -->
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      async
+      src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A0f51437d5cf58db278f3a62d2a5f1fc42d89caf305b3f724688ef9ec162e8c53&amp;width=100%25&amp;height=488&amp;lang=ru_RU&amp;scroll=true"
+    ></script>
+
+    <iframe
+      src="https://www.google.com/maps/d/u/0/embed?mid=1che-plBsgE1Le9MbiTfH-E8ZT7RaZ0CA&ehbc=2E312F"
+      width="100%"
+      height="480"
+    ></iframe>
+    <!-- Map block cart end -->
+
+    <footer>
+      <div class="container py-5 text-center">© 2022 Все права защищены</div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

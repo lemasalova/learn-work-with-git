@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>Кофейный аппарат</title>
+    <style>
+      .coffee_btn {
+        width: 0;
+        height: 0;
+        /* border-radius: 50%;
+        background-color: blue; */
+        border-top: 40px solid transparent;
+        border-left: 80px solid rgb(189, 54, 24);
+        border-bottom: 40px solid transparent;
+        cursor: pointer;
+      }
+      .coffee_btn:hover {
+        width: 0;
+        height: 0;
+        border-top: 40px solid transparent;
+        border-left: 80px solid rgb(13, 150, 20);
+        border-bottom: 40px solid transparent;
+        cursor: pointer;
+      }
+      .coffee_txt > span {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-left: 1.5rem;
+        vertical-align: middle;
+        line-height: 80px;
+      }
+      .coffee_txt {
+        margin-top: 0.5rem;
+        border: 1px solid black;
+        border-radius: 2px;
+        background-color: rgb(212, 181, 206);
+      }
+      /* #money {
+        margin-top: 0.5rem;
+        margin-left: 1.5rem;
+      } */
+      #sdacha {
+        margin-top: 0.5rem;
+        margin-left: 1.5rem;
+      }
+      body {
+        background: url(/img/007.webp);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* background-position: center; */
+      }
+      #display {
+        width: 100%;
+        height: 16.5rem;
+        background-color: rgba(108, 193, 23, 0.7);
+        color: white;
+        text-align: center;
+        padding: 0.5rem;
+        border: 1px solid black;
+        border-radius: 0.5rem;
+      }
+      img[src$="rub.jpg"]:hover {
+        cursor: pointer;
+        filter: contrast(150%);
+      }
+      .my-coin:hover {
+        cursor: pointer;
+        filter: contrast(150%);
+      }
+      .animated {
+        animation-name: hide-bill;
+        animation-duration: 2s;
+        animation-timing-function: ease;
+      }
+      @keyframes hide-bill {
+        0% {
+          transform: (-90deg) rotateY(1deg);
+          opacity: 1;
+        }
+        100% {
+          transform: (-90deg) rotateY(40deg);
+          opacity: 0;
+        }
+      }
+      #changeBox {
+        width: 100%;
+        height: 200px;
+        background-color: rgba(133, 182, 199, 0.4);
+        border: 2px solid black;
+        position: relative;
+      }
+      img[src$="rub.png"] {
+        width: 70px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row mb-5 mt-2">
+        <div class="col-lg-6">
+          <div class="row coffee_txt mt">
+            <div class="coffee_btn" onclick="getCoffee(63, 'Латте')"></div>
+            <span>Латте - 63</span>
+          </div>
+
+          <div class="row coffee_txt">
+            <div class="coffee_btn" onclick="getCoffee(75, 'Мокко')"></div>
+            <span>Мокко - 75</span>
+          </div>
+
+          <div class="row coffee_txt">
+            <div class="coffee_btn" onclick="getCoffee(82, 'Капучино')"></div>
+            <span>Капучино - 82</span>
+          </div>
+
+          <div class="row coffee_txt">
+            <div class="coffee_btn" onclick="getCoffee(87, 'Эспрессо')"></div>
+            <span>Эспрессо - 87</span>
+          </div>
+
+          <div class="row coffee_txt">
+            <div class="coffee_btn" onclick="getCoffee(95, 'Раф')"></div>
+            <span>Раф - 95</span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <div id="display">
+                <p id="displayInfo">Внесите деньги.</p>
+                <p id="balance">Баланс: 0 руб.</p>
+                <div class="progress" hidden>
+                  <div
+                    class="progress-bar progress-bar-striped"
+                    role="progressbar"
+                    aria-valuenow="10"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="btn btn-info btn-lg mt-3"
+                  onclick="getChange(money.value)"
+                >
+                  Получить сдачу
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input type="hidden" id="money" />
+              <img src="/img/bill_acc.jpg" alt="" />
+              <div id="changeBox" class="mt-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="/img/50rub.jpg" alt="" data-bill-value="50" />
+      <img src="/img/100rub.jpg" alt="" data-bill-value="100" />
+      <img src="/img/500rub.jpg" alt="" data-bill-value="500" />
+    </div>
+
+    <script>
+      let money = document.getElementById("money");
+      let displayInfo = document.getElementById("displayInfo");
+      let bills = document.querySelectorAll("img[src$='rub.jpg']");
+      let bill_acc = document.querySelector("img[src$='bill_acc.jpg']");
+      let balance = document.getElementById("balance");
+      // let test = document.getElementById("test");
+
+      function getCoffee(price, name) {
+        if (money.value >= price) {
+          // console.log("Ваш " + name + " готов!");
+          // money.value = money.value - price;
+          money.value -= price; // такое же значение как выше
+          balance.innerHTML = `Баланс: ${money.value} руб.`;
+          startProgressBar(name);
+          displayInfo.innerHTML = "Ваш " + name + " готов!";
+        } else {
+          displayInfo.innerHTML = "У Вас не хватает денег для покупки " + name;
+          // console.log("Нет денег, значит нет и кофе");
+        }
+      }
+
+      for (bill of bills) {
+        bill.onmousedown = function (e) {
+          bill = e.currentTarget;
+          bill.style.position = "absolute";
+          bill.style.zIndex = 1000;
+          bill.style.transform = "rotate(90deg)";
+
+          //Устанавливаем слушателя на событие mousemove
+          document.addEventListener("mousemove", moveAt);
+
+          //Удаляем слушателя по событию onmouseup
+          bill.onmouseup = function () {
+            document.removeEventListener("mousemove", moveAt);
+            bill.style.zIndex = 1;
+
+            //Получаем координаты купюр и приемника
+            let bill_top = bill.getBoundingClientRect().top;
+            let bill_left = bill.getBoundingClientRect().left;
+            let bill_right = bill.getBoundingClientRect().right;
+            let bill_acc_top = bill_acc.getBoundingClientRect().top;
+            let bill_acc_left = bill_acc.getBoundingClientRect().left;
+            let bill_acc_right = bill_acc.getBoundingClientRect().right;
+            let bill_acc_bottom =
+              bill_acc.getBoundingClientRect().bottom -
+              (bill_acc.getBoundingClientRect().height / 3) * 2;
+
+            //Проверяем и сопоставляем координаты
+            if (
+              bill_top > bill_acc_top &&
+              bill_left > bill_acc_left &&
+              bill_right < bill_acc_right &&
+              bill_top < bill_acc_bottom
+            ) {
+              bill.classList.add("animated");
+              setTimeout(function () {
+                bill.hidden = true;
+              }, 1800);
+              money.value = +money.value + +bill.dataset.billValue; //Записываем значение купюры в инпут
+              balance.innerHTML = `Баланс: ${money.value} руб.`;
+            }
+          };
+
+          //Движение и позиционирование купюры
+          function moveAt(event) {
+            let x = event.clientX - 149;
+            let y = event.clientY - 62;
+            bill.style.top = y + "px";
+            bill.style.left = x + "px";
+          }
+          //Отменяем стандартное поведение браузера
+          bill.ondragstart = function () {
+            return false;
+          };
+        };
+      }
+
+      function startProgressBar(coffeeName) {
+        let i = 0;
+
+        let progressBar = document.querySelector(".progress-bar");
+        progressBar.parentElement.hidden = false;
+
+        function progress() {
+          i++;
+          progressBar.style.width = i + "%";
+
+          if (i == 100) {
+            clearInterval(timerId);
+            progressBar.parentElement.hidden = true;
+            progressBar.style.width = i + "%";
+            displayInfo.innerHTML = `Ваш ${coffeeName} готов!`;
+          } else if (i == 50) {
+            displayInfo.innerHTML = `Напиток ${coffeeName} почти готов...`;
+          }
+        }
+        let timerId = setInterval(progress, 100);
+      }
+
+      // for (let i = 0; i < bills.length; i++) {
+      //   bills[i].onmousedown = function (e) {
+      //     bills[i] = e.currentTarget;
+      //     bills[i].style.position = "absolute";
+      //     bills[i].style.zIndex = 1000;
+
+      //     document.addEventListener("mousemove", moveAt); //Устанавливаем слушателя на событие mousemove
+
+      //     bills[i].onmouseup = function () {
+      //       //Удаляем слушателя по событию onmouseup
+      //       document.removeEventListener("mousemove", moveAt);
+      //       bills[i].style.zIndex = 1;
+      //     };
+
+      //     function moveAt(event) {
+      //       let x = event.clientX - 75;
+      //       let y = event.clientY - 75;
+      //       bills[i].style.top = y + "px";
+      //       bills[i].style.left = x + "px";
+      //     }
+      //     //Отменяем стандартное поведение браузера
+      //     bills[i].ondragstart = function () {
+      //       return false;
+      //     };
+      //   };
+      // }
+
+      // for (bill of bills) {
+      //   bill.onmousedown = function () {
+      //     console.log("Событие onmousedown");
+      //   };
+      // }
+
+      changeBox.addEventListener("click", (event) => {
+        console.log(event.target);
+        console.dir(event.target);
+
+        console.log(event.target.tagName);
+
+        // if (event.target.className === "my-coin") {
+        if (event.target.tagName === "IMG") {
+          event.target.remove();
+        }
+      });
+
+      function getChange(num) {
+        let coin;
+        let top = getRandom(0, changeBox.getBoundingClientRect().height - 75);
+        let left = getRandom(0, changeBox.getBoundingClientRect().width - 75);
+        if (num >= 10) coin = 10;
+        else if (num >= 5) coin = 5;
+        else if (num >= 2) coin = 2;
+        else if (num >= 1) coin = 1;
+        console.log(coin);
+        changeBox.innerHTML += `<img class="my-coin" src="/img/${coin}rub.png" style="top:${top}px; left:${left}px">`;
+        if (num - coin !== 0) {
+          getChange(num - coin);
+        }
+        balance.innerHTML = `Баланс: ${0} руб.`;
+      }
+
+      function oldgetChange(num) {
+        if (num >= 10) {
+          console.log(10);
+          oldgetChange(num - 10);
+        } else if (num >= 5) {
+          console.log(5);
+          oldgetChange(num - 5);
+        } else if (num >= 2) {
+          console.log(2);
+          oldgetChange(num - 2);
+        } else if (num >= 1) {
+          console.log(1);
+          oldgetChange(num - 1);
+        } else {
+          console.log("Вся сдача выдана!");
+        }
+      }
+
+      function getChange2(num) {
+        let monetokOstalos = num;
+
+        while (monetokOstalos > 0) {
+          let currentCoin;
+
+          //console.log(monetokOstalos);
+
+          if (monetokOstalos >= 10) {
+            currentCoin = 10;
+          } else if (monetokOstalos >= 5) {
+            currentCoin = 5;
+          } else if (monetokOstalos >= 2) {
+            currentCoin = 2;
+          } else if (monetokOstalos >= 1) {
+            currentCoin = 1;
+          }
+          console.log(currentCoin);
+          monetokOstalos = monetokOstalos - currentCoin;
+        }
+        console.log("Вся сдача выдана!");
+      }
+
+      function getRandom(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      // function ternGetChange(value) {
+      //   let coin =
+      //     value >= 10
+      //       ? 10
+      //       : value >= 5
+      //       ? 5
+      //       : value >= 2
+      //       ? 2
+      //       : value >= 1
+      //       ? 1 : "Вся сдача выдана!";
+      //   consol.log(coin);
+      //   if (value - coin == 0) {
+      //     ternGetChange(value - coin);
+      //   }
+      // }
+
+      // ball.ondragstart = function () {
+      //   return false;
+      // }; //отменяет настройки браузера по умолчанию
+
+      // let fiftyRubles = document.getElementById("fiftyRubles");
+      // //     let disableBtn = document.getElementById("disableBtn");
+      // fiftyRubles.style.position = "absolute";
+      // fiftyRubles.ondragstart = function () {
+      //   return false;
+      // };
+      // fiftyRubles.onmousedown = function () {
+      //   document.addEventListener("mousemove", moveElem);
+      //   fiftyRubles.onmouseup = function () {
+      //     document.removeEventListener("mousemove", moveElem);
+      //   };
+      // };
+
+      // function moveElem(event) {
+      //   let x = event.clientX - 75;
+      //   let y = event.clientY - 75;
+
+      //   fiftyRubles.style.top = y + "px";
+      //   fiftyRubles.style.left = x + "px";
+      // }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+      #redSquare {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin-top: 1rem;
+      }
+      #blueSquare {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin-top: 1rem;
+      }
+      #yellowSquare {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        margin-top: 1rem;
+      }
+      #box_grayCub {
+        width: 200px;
+        height: 200px;
+        background-color: grey;
+        /* position: relative; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row"><div id="redSquare"></div></div>
+          <div class="row">
+            <div id="blueSquare"></div>
+          </div>
+          <div class="row">
+            <div id="yellowSquare"></div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div id="box_grayCub" class="mt-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let redSquare = document.getElementById("redSquare");
+      let blueSquare = document.getElementById("blueSquare");
+      let yellowSquare = document.getElementById("yellowSquare");
+      let boxes = document.querySelectorAll("div[id$='Square']");
+      let box_grayCub = document.querySelector("div[id$='box_grayCub']");
+
+      for (box of boxes) {
+        box.onmousedown = function (e) {
+          box = e.currentTarget;
+          box.style.position = "fixed";
+          box.style.zIndex = 1000;
+
+          //Устанавливаем слушателя на событие mousemove по нажатию мыши
+          document.addEventListener("mousemove", moveAt);
+
+          box.onmouseup = function () {
+            //Удаляем слушателя по событию onmouseup
+            document.removeEventListener("mousemove", moveAt);
+            box.style.zIndex = 1;
+
+            //Получаем координаты разноцветных квадратов
+
+            let box_top = box.getBoundingClientRect().top;
+            let box_left = box.getBoundingClientRect().left;
+            let box_right = box.getBoundingClientRect().right;
+            let box_grayCub_top = box_grayCub.getBoundingClientRect().top;
+            let box_grayCub_left = box_grayCub.getBoundingClientRect().left;
+            let box_grayCub_right = box_grayCub.getBoundingClientRect().right;
+            let box_grayCub_bottom =
+              box_grayCub.getBoundingClientRect().bottom -
+              (box_grayCub.getBoundingClientRect().height / 3) * 2;
+
+            //Проверяем и сопоставляем координаты
+
+            if (
+              box_top > box_grayCub_top &&
+              box_left > box_grayCub_left &&
+              box_right < box_grayCub_right &&
+              box_top < box_grayCub_bottom
+            ) {
+              box.hidden = true;
+              box_grayCub.style.backgroundColor =
+                window.getComputedStyle(box).backgroundColor;
+            }
+          };
+
+          //Движение и позиционирование квадратов
+
+          function moveAt(event) {
+            console.log(event);
+            // let x = event.clientX - 50;
+            // let y = event.clientY - 50;
+
+            // найти координаты курсора
+
+            let x = event.screenX - 50;
+            let y = event.screenY - 150;
+
+            box.style.top = y + "px";
+            box.style.left = x + "px";
+          }
+
+          // Отменяем стандартное поведение браузера
+
+          box.ondragstart = function () {
+            return false;
+          };
+        };
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
