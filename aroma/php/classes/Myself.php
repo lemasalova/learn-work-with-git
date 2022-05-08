@@ -51,24 +51,22 @@ class Person
         return $this->father;
     }
 
-    // function getSister()
-    // {
-    //     return $this->sister;
-    // }
-    // function getBrother()
-    // {
-    //     return $this->brother;
-    // }
+    function getSister()
+    {
+        return $this->sister;
+    }
+    function getBrother()
+    {
+        return $this->brother;
+    }
 
     function getInfo()
     {
         return "<h3>A few words about myself:</h3><br>" . "My name is: " . $this->getName() . "<br> my lastname is: " . $this->getLastname() .
             "<br> my father is: " . $this->getFather()->getName() . "<br> my mother is: " . $this->getMother()->getName() . "<br> my 
                 grandmother is: " . $this->getMother()->getMother()->getName() . "<br> my grandfathers is: " . $this->getMother()->getFather()
-            ->getName() . " and " . $this->getFather()->getFather()->getName();
-
-        // . "<br> my sister and brother: " . $this->getSister()
-        // ->getName() . " and " . $this->getBrother()->getName();
+            ->getName() . " and " . $this->getFather()->getFather()->getName() . "<br> my sister and brother: " . $this->getSister()->getName()
+            . " and " . $this->getBrother()->getName();
     }
 }
 //Здоровье человека не может быть больше 100.
@@ -79,9 +77,11 @@ $tatyana = new Person("Tatyana", "Masalova", 63); //Бабушка
 
 $maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
 $lyubov = new Person("Lyubov", "Masalova", 39, $tatyana, $evgeny);
-$kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim);
+
 $vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
 $gleb = new Person("Gleb", "Utkin", 5, $lyubov, $maksim, $kira, $vika);
+
+$kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim, $vika, $gleb);
 
 echo $kira->getInfo();
 
