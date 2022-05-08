@@ -84,7 +84,7 @@ $maksim = new Person("Maksim", "Utkin", 39, null, $anatoly);
 $lyubov = new Person("Lyubov", "Masalova", 39, $tatyana, $evgeny);
 $kira = new Person("Kira", "Utkina", 14, $lyubov, $maksim, $vika, $gleb);
 $vika = new Person("Vika", "Utkina", 7, $lyubov, $maksim, $kira, $gleb);
-$gleb = new Person("Gleb", "Utkin", 5, $lyubov, $maksim, $kira, $vika);
+// $gleb = new Person("Gleb", "Utkin", 5, $lyubov, $maksim, $kira, $vika);
 
 // echo $kira->getInfo();
 
