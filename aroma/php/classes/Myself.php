@@ -6,21 +6,20 @@ class Person
     private $age;
     private $mother;
     private $father;
-    // private $sister;
-    // private $brother;
+    private $sister;
+    private $brother;
     private $hp;
 
     function __construct($name, $lastname, $age, $mother = null, $father = null)
-
-    //  $sister, $brother = null)
+    //$sister, $brother = null)
     {
         $this->name = $name;
         $this->lastname = $lastname;
         $this->age = $age;
         $this->mother = $mother;
         $this->father = $father;
-        // $this->sister = $sister;
-        // $this->brother = $brother;
+        //$this->sister = $sister;
+        //$this->brother = $brother;
         $this->hp = 100;
     }
     function sayHi($name)
