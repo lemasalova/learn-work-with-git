@@ -25,7 +25,7 @@
             <div class="row mt-5">
               <div class="col-sm-3"><img src="../../img/blog/author.png" alt="Фото пользователя"></div>
               <div class="col-sm-9">
-                <h1>Петр Петров</h1>
+                <h1 id="userName"></h1>
                 <h2>О себе</h2>
                 <p>Не следует, однако, забывать, что курс на социально-ориентированный национальный проект, в своём классическом представлении, допускает внедрение как самодостаточных, так и внешне зависимых концептуальных решений. А также представители современных социальных резервов, вне зависимости от их уровня, должны быть объективно рассмотрены соответствующими инстанциями.</p>
               </div>
@@ -87,10 +87,7 @@
           </div>
 
           <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <h2>Настройки страницы</h2>
-            <p>Имя: <span>Петр</span><span>[Изменить]</span></p>
-            <p>Фамилия: <span>Петр</span><span>[Изменить]</span></p>
-            <p>[Изменить пароль]</p>
+
           </div>
         </div>
       </div>
@@ -102,21 +99,17 @@
 
   <script>
     let path = location.pathname.split("/")[2];
+    let user;
 
-    // $(window).on("popstate", function(e) {
-    //   let pathPop = location.pathname.split("/")[2]
-    //   if (pathPop == "profile") {
-    //     $('#v-pills-profile').tab('show');
+    async function getUser() {
+      let response = await fetch("/getUser"); //отправила запрос на сервер
+      return await response.json(); //возвращает полученные данные в формате json
+    }
+    async function getUsers() {
+      let response = await fetch("/getUsers");
+      return await response.json();
+    }
 
-    //   } else if (pathPop == "messages") {
-    //     $('#v-pills-messages').tab('show');
-
-    //   } else if (pathPop == "settings") {
-    //     $('#v-pills-settings').tab('show');
-
-    //   }
-    //   document.getElementById(path + "Tab").classList.add("active");
-    // })
     //Работаем с имторией по кнопкам в браузере
     addEventListener('popstate', event => {
       let pathPop = location.pathname.split("/")[2]
@@ -134,14 +127,25 @@
 
 
     if (path == "profile") {
+      // user = getUser();
+      // user.then((result) => {
+      //   console.log(result);
+      // })
+      getUser().then(user => {
+        userName.innerText = `${user.name} ${user.lastname}`
+
+      })
       $('#v-pills-profile').tab('show');
-      //console.log(path);
+
     } else if (path == "messages") {
       $('#v-pills-messages').tab('show');
-      //console.log(path);
+
     } else if (path == "settings") {
+      getUsers().then(users => {
+        console.log(users);
+      })
       $('#v-pills-settings').tab('show');
-      //console.log(path);
+
     } else {
       location.href = location.protocol + "//" + location.host;
     }

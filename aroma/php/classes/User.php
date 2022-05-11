@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
 header('Content-Type: text/html; charset=utf-8');
 class User
 {
@@ -68,5 +71,24 @@ class User
         } else {
             return json_encode(["result" => "rejected"]);
         }
+    }
+    // Статический метод получения данных пользователя.
+    static function getUser($userID)
+    {
+        global $mysqli;
+        $result = $mysqli->query("SELECT * FROM `users` WHERE `id` = '$userID'");
+        $result = $result->fetch_assoc();
+        return json_encode($result);
+    }
+    // Статический метод получения данных пользователей.
+    static function getUsers()
+    {
+        global $mysqli;
+        $result = $mysqli->query("SELECT `name`, `lastname`, `email`, `id` FROM `users` WHERE 1");
+
+        while ($row = $result->fetch_assoc()) {
+            $users[] = $row;
+        }
+        return json_encode($users);
     }
 }
