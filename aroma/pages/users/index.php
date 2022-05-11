@@ -85,9 +85,19 @@
               <col-4><button class="btn btn-warning">Отправить</button></col-4>
             </div>
           </div>
-
           <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Имя</th>
+                  <th scope="col">Фамилия</th>
+                  <th scope="col">E-mail</th>
+                </tr>
+              </thead>
+              <tbody id="userListTable">
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -131,9 +141,9 @@
       // user.then((result) => {
       //   console.log(result);
       // })
+
       getUser().then(user => {
         userName.innerText = `${user.name} ${user.lastname}`
-
       })
       $('#v-pills-profile').tab('show');
 
@@ -142,7 +152,21 @@
 
     } else if (path == "settings") {
       getUsers().then(users => {
-        console.log(users);
+        // console.log(users);
+        for (let i = 0; i < users.length; i++) {
+          userListTable.insertAdjacentHTML('beforeend', ` <tr>
+                  <th scope="row">${users[i].id}</th>
+                  <td>${users[i].name}</td>
+                  <td>${users[i].lastname}</td>
+                  <td>${users[i].email}</td>
+                </tr>`);
+          // userListTable.innerHTML += ` <tr>
+          //         <th scope="row">${users[i].id}</th>
+          //         <td>${users[i].name}</td>
+          //         <td>${users[i].lastname}</td>
+          //         <td>${users[i].email}</td>
+          //       </tr>`
+        }
       })
       $('#v-pills-settings').tab('show');
 
