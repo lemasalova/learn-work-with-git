@@ -67,20 +67,31 @@
       font-weight: 700;
       font-size: 48px;
       line-height: 124%;
-      text-align: center;
       color: #000000;
 
       margin: 64px;
-      margin-right: 0;
       margin-bottom: 0;
-      margin-left: 0;
+      max-width: 535px;
+
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
     .my-catalog-content {
       margin-top: 40px;
+      display: flex;
+    }
+
+    .my-catalog-content-img-wrap {
+      margin-right: 40px;
+    }
+
+    .my-catalog-content-img-wrap:last-child {
+      margin-right: 0;
     }
 
     .my-catalog-content-img {
-      margin-right: 40px;
+      width: 100%;
     }
     /* Блок бенефит */
     .my-benefits-title {
@@ -98,6 +109,7 @@
     }
     .my-benefits-content {
       margin-top: 40px;
+      display: flex;
     }
     /* .my-benefits-content-img {
       width: 100%;
@@ -162,22 +174,31 @@
       </div>
 
       <div class="my-catalog-content">
-        <div class="">
+        <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
             src="/diplomnaya_rabota/img/img-01.png"
             alt=""
           />
+        </div>
+
+        <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
             src="/diplomnaya_rabota/img/img-02.png"
             alt=""
           />
+        </div>
+
+        <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
             src="/diplomnaya_rabota/img/img-03.png"
             alt=""
           />
+        </div>
+
+        <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
             src="/diplomnaya_rabota/img/img-04.png"
@@ -200,7 +221,7 @@
           />
         </div>
         <div class="my-benefits-content-col-2">
-          <div><img src="" alt="" /></div>
+          <div><img src="/diplomnaya_rabota/img/feature-1.png" alt="" /></div>
         </div>
       </div>
     </div>
