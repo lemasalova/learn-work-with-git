@@ -63,10 +63,10 @@ class User
         $result = $result->fetch_assoc();
 
         if (password_verify($pass, $result['pass'])) {
-
-            return json_encode(["result" => "success"]);
+            $_SESSION["id"] = $result["id"];
+            return json_encode(["result" => "ok"]);
         } else {
-            return json_encode(["result" => "exist"]);
+            return json_encode(["result" => "rejected"]);
         }
     }
 }

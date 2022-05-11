@@ -1,4 +1,5 @@
 <?php
+session_start();
 header('Content-Type: text/html; charset=utf-8');
 
 $url = explode('/', $_SERVER['REQUEST_URI']);
