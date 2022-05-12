@@ -111,17 +111,85 @@
       margin-top: 40px;
       display: flex;
     }
-    /* .my-benefits-content-img {
-      width: 100%;
-    } */
+
     .my-benefits-content-col-2 {
-      width: 391px;
-      height: 112px;
-      left: 855px;
-      top: 1931px;
+      display: flex;
+      justify-content: center;
+      max-width: 390px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .my-benefits-content-spisok-title {
+      font-family: "SF UI Display";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 160%;
+      letter-spacing: 0.01em;
+      color: #000000;
+      padding-bottom: 8px;
+      margin: auto;
+    }
+    li {
+      margin-bottom: 48px;
+    }
+    .my-benefits-content-spisok-subtitle {
+      font-family: "SF UI Display";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      letter-spacing: 0.01em;
+      color: #000000;
+      margin: auto;
+    }
+    .my-benefits-content-button-wrap {
+      margin-top: 72px;
+      display: flex;
+      justify-content: center;
+    }
+    .my-container-figny {
+      height: 588px;
+      background-color: grey;
+    }
+    .my-figny-title {
+      font-family: "New York Extra Large";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 124%;
+      color: #000000;
+    }
+    .my-archmove-content {
+      margin-top: 64px;
+      display: flex;
+    }
+    .my-archmove-content-col-2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 520px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .my-archmove-tatle {
+      font-family: "New York Extra Large";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 124%;
+      color: #000000;
+    }
+    .my-archmove-tatle-accent {
+      color: red;
+    }
+    .my-archmove-content-button-wrap {
+      margin-top: 64px;
+      justify-content: center;
     }
 
     /* Переиспользуемые элементы */
+    /* Уточнить расстояние между заголовком и предыдущим контентом */
     .my-container {
       margin-left: auto;
       margin-right: auto;
@@ -165,7 +233,6 @@
       </div>
     </div>
     <div class="my-container">
-      <!-- не могу выровнять текст по центру и по левой стороне -->
       <div>
         <h2 class="my-catalog-title">
           Build professional <br />
@@ -221,7 +288,66 @@
           />
         </div>
         <div class="my-benefits-content-col-2">
-          <div><img src="/diplomnaya_rabota/img/feature-1.png" alt="" /></div>
+          <div>
+            <ul class="my-benefits-content-spisok">
+              <li>
+                <p class="my-benefits-content-spisok-title">
+                  100% guaranteed project completion
+                </p>
+                <p class="my-benefits-content-spisok-subtitle">
+                  Build safe, comfortable and transparent with a project
+                  management application with a joint account.
+                </p>
+              </li>
+              <li>
+                <p class="my-benefits-content-spisok-title">
+                  No additional fees
+                </p>
+                <p class="my-benefits-content-spisok-subtitle">
+                  There are no hidden costs. The value of the offer you get is
+                  the value you paid.
+                </p>
+              </li>
+              <li>
+                <p class="my-benefits-content-spisok-title">
+                  Get escort from the Team
+                </p>
+                <p class="my-benefits-content-spisok-subtitle">
+                  Monitor reports from the Arsitag team who check directly in
+                  the field.
+                </p>
+              </li>
+            </ul>
+            <div class="my-benefits-content-button-wrap">
+              <button class="my-button">FREE CONSULTATION</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Переделать контейнер -->
+    <div class="my-container-figny">
+      <h4 class="my-figny-title">
+        Sound Too Good <br />
+        To Be True?
+      </h4>
+    </div>
+    <div class="my-container">
+      <div class="my-archmove-content">
+        <div class="my-archmove-content-col-1">
+          <img src="/diplomnaya_rabota/img/img.png" alt="" />
+        </div>
+        <div class="my-archmove-content-col-2">
+          <div>
+            <h5 class="my-archmove-tatle">
+              Realize your dream <br />
+              project with
+              <span class="my-archmove-tatle-accent">Archmove</span>
+            </h5>
+          </div>
+          <div class="my-archmove-content-button-wrap">
+            <button class="my-button">FREE CONSULTATION</button>
+          </div>
         </div>
       </div>
     </div>
