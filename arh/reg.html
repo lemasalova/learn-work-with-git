@@ -146,7 +146,7 @@
     </div>
     <script>
       async function sendForm(form) {
-        let response = await fetch("php/reg_obr.php", {
+        let response = await fetch("/arh/php/reg_obr.php", {
           method: "POST",
           body: new FormData(form),
         });
