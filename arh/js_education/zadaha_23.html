@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Задача № 23</title>
+  </head>
+  <body>
+    <!-- Создайте два инпута и кнопку. (Пример ниже).Создайте функцию, которая при
+    нажатии на кнопку будет во втором инпуте выводить, введенный пользователем,
+    квадрат числа из первого инпута. -->
+
+    <input type="text" id="input1" value="Введите число " />
+    <input type="text" id="input2" value="Здесь появится результат" />
+
+    <button onclick="buttonClick()">Нажми на меня</button>
+
+    <script>
+      function buttonClick() {
+        let input1 = document.getElementById("input1");
+        let input2 = document.getElementById("input2");
+        let input1Value = input1.value;
+        let input2Value = input2.value;
+        input1.value = input2Value;
+        input2.value = input1Value;
+      }
+    </script>
+  </body>
+</html>
+
+function buttonClick() { var input = document.getElementById('input'); var
+number = Number(input.value); var square = number*number; alert(square); }

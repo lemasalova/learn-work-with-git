@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Дан массив с числами. Проверьте, есть ли в нем два одинаковых числа подряд. Если есть - выведите 'да',
+    а если нет - выведите 'нет'. -->
+    <script>
+      let arr = [6, 7, 9, 3, 5, 5, 7];
+      let flag = false;
+
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] == arr[i - 1]) {
+          flag = true;
+          break;
+        }
+      }
+      if ((flag = true)) {
+        alert("Да");
+      } else {
+        alert("Нет");
+      }
+    </script>
+  </body>
+</html>
