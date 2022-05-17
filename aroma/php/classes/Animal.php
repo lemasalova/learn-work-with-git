@@ -1,7 +1,4 @@
 <?php
-
-use Animal as GlobalAnimal;
-
 abstract class Animal
 {
     private $nickname;
@@ -30,12 +27,20 @@ abstract class Animal
     {
         echo $this->nickname . ": I`m flying!";
     }
+    function speak()
+    {
+        echo "...";
+    }
 }
 class Cat extends Animal
 {
     function run()
     {
         echo $this->getNickname() . ": I`m running!";
+    }
+    function speak()
+    {
+        echo "Meow";
     }
 }
 class Bird extends Animal
@@ -44,6 +49,10 @@ class Bird extends Animal
     {
         echo $this->getNickname() . ": I`m flying!";
     }
+    function speak()
+    {
+        echo "Chirik-chirik";
+    }
 }
 
 $barsik = new Cat("Barsik", 4, null);
@@ -51,3 +60,5 @@ $kesha = new Bird("Kesha", 4, null);
 
 $barsik->run();
 $kesha->fly();
+$barsik->speak();
+$kesha->speak();
