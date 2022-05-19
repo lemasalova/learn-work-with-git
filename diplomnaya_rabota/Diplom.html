@@ -116,6 +116,14 @@
       margin-right: auto;
       text-align: left;
     }
+    .my-catalog-title-wrap {
+      position: relative;
+    }
+    .my-catalog-title-arrow {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
     .my-catalog-content {
       margin-top: 40px;
       display: flex;
@@ -224,6 +232,12 @@
       letter-spacing: 0.01em;
       color: #000000;
     }
+    .my-reviews-content-footer-accent {
+      font-family: "SF UI Display";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+    }
     .my-reviews-content-footer {
       display: flex;
       justify-content: space-between;
@@ -321,22 +335,22 @@
           </a>
           <ul class="my-header-links-wrap">
             <li>
-              <a class="my-header-link" class="my-footer-link" href="#"
+              <a class="my-header-link" class="my-header-link" href="#"
                 >Design Gallery</a
               >
             </li>
             <li>
-              <a class="my-header-link" class="my-footer-link" href="#"
+              <a class="my-header-link" class="my-header-link" href="#"
                 >List of Architect</a
               >
             </li>
             <li>
-              <a class="my-header-link" class="my-footer-link" href="#"
+              <a class="my-header-link" class="my-header-link" href="#"
                 >Articles</a
               >
             </li>
             <li>
-              <a class="my-header-link" class="my-footer-link" href="#"
+              <a class="my-header-link" class="my-header-link" href="#"
                 >How it Works</a
               >
             </li>
@@ -378,11 +392,19 @@
       </div>
     </div>
     <div class="my-container my-standard-inner">
-      <div>
+      <div class="my-catalog-title-wrap">
         <h2 class="my-catalog-title">
           Build professional <br />
           valuable room for you
         </h2>
+        <div class="my-catalog-title-arrow">
+          <span
+            ><img src="/diplomnaya_rabota/img/arrow_left.png" alt=""
+          /></span>
+          <span
+            ><img src="/diplomnaya_rabota/img/arrow_right.png" alt=""
+          /></span>
+        </div>
       </div>
 
       <div class="my-catalog-content">
@@ -500,7 +522,10 @@
           feedback from people from all over the U.S. and even further.
         </p>
         <div class="my-reviews-content-footer">
-          <div><span>Adam Morph</span>— CEO Alfatech</div>
+          <div>
+            <span class="my-reviews-content-footer-accent">Adam Morph </span>—
+            CEO Alfatech
+          </div>
           <div>
             <span
               ><img src="/diplomnaya_rabota/img/arrow_left.png" alt=""
