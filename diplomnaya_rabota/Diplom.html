@@ -11,11 +11,9 @@
       margin: 0;
     }
     ol,
-    ul,
-    a {
+    ul {
       list-style: none;
       text-decoration: none;
-      padding: 4px 24px;
     }
     /* Хедер */
     .my-header {
@@ -28,11 +26,16 @@
       display: flex;
       align-items: center;
     }
-    .my-header-links {
+    .my-header-links-wrap {
       display: flex;
       align-items: center;
       margin: 0;
       padding: 0;
+    }
+    .my-header-link {
+      padding: 8px 24px;
+      text-decoration: none;
+      color: #000;
     }
     .my-header-button {
       color: white;
@@ -156,6 +159,7 @@
       margin-left: auto;
     }
     .my-benefits-content-spisok-title {
+      position: relative;
       font-family: "SF UI Display";
       font-style: normal;
       font-weight: 700;
@@ -165,6 +169,17 @@
       color: #000000;
       padding-bottom: 8px;
       margin: auto;
+    }
+    .my-benefits-content-spisok-item {
+      margin-top: 48px;
+    }
+    .my-benefits-content-spisok-item:first-child {
+      margin-top: 0;
+    }
+    .my-benefits-content-icon {
+      position: absolute;
+      top: 0;
+      left: -80px;
     }
     .my-benefits-content-spisok-subtitle {
       font-family: "SF UI Display";
@@ -181,18 +196,39 @@
       display: flex;
       justify-content: center;
     }
-    .my-container-figny {
-      height: 588px;
-      background-color: grey;
-    }
-    .my-figny-title {
+    .my-reviews-title {
       font-family: "New York Extra Large";
       font-style: normal;
       font-weight: 700;
       font-size: 48px;
       line-height: 124%;
       color: #000000;
+      margin: 0;
     }
+    .my-reviews-content {
+      position: relative;
+      max-width: 765px;
+      margin-left: auto;
+    }
+    .my-reviews-content-img {
+      position: absolute;
+      top: 0;
+      left: -80px;
+    }
+    .my-reviews-content-text {
+      font-family: "SF UI Display";
+      font-style: normal;
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 160%;
+      letter-spacing: 0.01em;
+      color: #000000;
+    }
+    .my-reviews-content-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .my-archmove-content {
       margin-top: 64px;
       display: flex;
@@ -242,11 +278,16 @@
       justify-content: space-between;
       align-items: center;
     }
-    .my-footer-links {
+    .my-footer-links-wrap {
       display: flex;
       align-items: center;
       margin: 0;
       padding: 0;
+    }
+    .my-footer-link {
+      padding: 4px 24px;
+      text-decoration: none;
+      color: #000;
     }
 
     /* Переиспользуемые элементы */
@@ -275,19 +316,35 @@
     <div class="my-container">
       <div class="my-header">
         <div class="my-header-left-side">
-          <a href="#" class="logo">
-            <img src="/diplomnaya_rabota/img/logo-arch.png" alt="" />
+          <a class="my-header-link" href="#" class="logo">
+            <img src="/diplomnaya_rabota/img/header_logo.png" alt="" />
           </a>
-          <ul class="my-header-links">
-            <li><a href="#">Design Gallery</a></li>
-            <li><a href="#">List of Architect</a></li>
-            <li><a href="#">Articles</a></li>
-            <li><a href="#">How it Works</a></li>
+          <ul class="my-header-links-wrap">
+            <li>
+              <a class="my-header-link" class="my-footer-link" href="#"
+                >Design Gallery</a
+              >
+            </li>
+            <li>
+              <a class="my-header-link" class="my-footer-link" href="#"
+                >List of Architect</a
+              >
+            </li>
+            <li>
+              <a class="my-header-link" class="my-footer-link" href="#"
+                >Articles</a
+              >
+            </li>
+            <li>
+              <a class="my-header-link" class="my-footer-link" href="#"
+                >How it Works</a
+              >
+            </li>
           </ul>
         </div>
         <nav>
           <button class="my-header-button-icon">
-            <img src="/diplomnaya_rabota/img/ic-searhc.png" alt="" />
+            <img src="/diplomnaya_rabota/img/header_ico.png" alt="" />
           </button>
           <button class="my-header-button secondary">Sign In</button>
           <button class="my-header-button">Sign Up</button>
@@ -314,7 +371,7 @@
         <div class="">
           <img
             class="my-hero-content-img"
-            src="/diplomnaya_rabota/img/Rectangle 1.png"
+            src="/diplomnaya_rabota/img/hero_img.png"
             alt=""
           />
         </div>
@@ -332,7 +389,7 @@
         <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
-            src="/diplomnaya_rabota/img/img-01.png"
+            src="/diplomnaya_rabota/img/catalog_img-01.png"
             alt=""
           />
         </div>
@@ -340,7 +397,7 @@
         <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
-            src="/diplomnaya_rabota/img/img-02.png"
+            src="/diplomnaya_rabota/img/catalog_img-02.png"
             alt=""
           />
         </div>
@@ -348,7 +405,7 @@
         <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
-            src="/diplomnaya_rabota/img/img-03.png"
+            src="/diplomnaya_rabota/img/catalog_img-03.png"
             alt=""
           />
         </div>
@@ -356,7 +413,7 @@
         <div class="my-catalog-content-img-wrap">
           <img
             class="my-catalog-content-img"
-            src="/diplomnaya_rabota/img/img-04.png"
+            src="/diplomnaya_rabota/img/catalog_img-04.png"
             alt=""
           />
         </div>
@@ -371,16 +428,19 @@
         <div class="my-benefits-content-col-1">
           <img
             class="my-benefits-content-img"
-            src="/diplomnaya_rabota/img/img-5.png"
+            src="/diplomnaya_rabota/img/benefits_img-1.png"
             alt=""
           />
         </div>
         <div class="my-benefits-content-col-2">
           <div>
-            <!-- Сломались отступы -->
             <ul class="my-benefits-content-spisok">
-              <li>
+              <li class="my-benefits-content-spisok-item">
                 <p class="my-benefits-content-spisok-title">
+                  <img
+                    class="my-benefits-content-icon"
+                    src="/diplomnaya_rabota/img/benefits_shield.png"
+                  />
                   100% guaranteed project completion
                 </p>
                 <p class="my-benefits-content-spisok-subtitle">
@@ -388,8 +448,12 @@
                   management application with a joint account.
                 </p>
               </li>
-              <li>
+              <li class="my-benefits-content-spisok-item">
                 <p class="my-benefits-content-spisok-title">
+                  <img
+                    class="my-benefits-content-icon"
+                    src="/diplomnaya_rabota/img/benefits_document.png"
+                  />
                   No additional fees
                 </p>
                 <p class="my-benefits-content-spisok-subtitle">
@@ -397,8 +461,12 @@
                   the value you paid.
                 </p>
               </li>
-              <li>
+              <li class="my-benefits-content-spisok-item">
                 <p class="my-benefits-content-spisok-title">
+                  <img
+                    class="my-benefits-content-icon"
+                    src="/diplomnaya_rabota/img/benefits_arrow.png"
+                  />
                   Get escort from the Team
                 </p>
                 <p class="my-benefits-content-spisok-subtitle">
@@ -415,21 +483,39 @@
       </div>
     </div>
     <!-- Переделать контейнер -->
-    <div class="my-container-figny my-standard-inner">
-      <h4 class="my-figny-title">
+    <div class="my-container my-standard-inner">
+      <h4 class="my-reviews-title">
         Sound Too Good <br />
         To Be True?
       </h4>
-      <p>
-        We just wanted to thank you for this fantastic website! We are so
-        grateful for being able to advertise our Petite cabin and receive
-        feedback from people from all over the U.S. and even further.
-      </p>
+
+      <div class="my-reviews-content">
+        <img
+          class="my-reviews-content-img"
+          src="/diplomnaya_rabota/img/reviews_ico.png"
+        />
+        <p class="my-reviews-content-text">
+          We just wanted to thank you for this fantastic website! We are so
+          grateful for being able to advertise our Petite cabin and receive
+          feedback from people from all over the U.S. and even further.
+        </p>
+        <div class="my-reviews-content-footer">
+          <div><span>Adam Morph</span>— CEO Alfatech</div>
+          <div>
+            <span
+              ><img src="/diplomnaya_rabota/img/arrow_left.png" alt=""
+            /></span>
+            <span
+              ><img src="/diplomnaya_rabota/img/arrow_right.png" alt=""
+            /></span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="my-container my-standard-inner">
       <div class="my-archmove-content">
         <div class="my-archmove-content-col-1">
-          <img src="/diplomnaya_rabota/img/img.png" alt="" />
+          <img src="/diplomnaya_rabota/img/arhmove_img.png" alt="" />
         </div>
         <div class="my-archmove-content-col-2">
           <div>
@@ -449,33 +535,33 @@
       <h6 class="my-partners-tatle">Our Partners</h6>
       <div class="my-partners-content">
         <div class="col-1">
-          <img src="/diplomnaya_rabota/img/logo-1.png" alt="" />
+          <img src="/diplomnaya_rabota/img/partners_logo-1.png" alt="" />
         </div>
         <div class="col-2">
-          <img src="/diplomnaya_rabota/img/logo-2.png" alt="" />
+          <img src="/diplomnaya_rabota/img/partners_logo-2.png" alt="" />
         </div>
         <div class="col-3">
-          <img src="/diplomnaya_rabota/img/logo-3.png" alt="" />
+          <img src="/diplomnaya_rabota/img/partners_logo-3.png" alt="" />
         </div>
         <div class="col-4">
-          <img src="/diplomnaya_rabota/img/logo-4.png" alt="" />
+          <img src="/diplomnaya_rabota/img/partners_logo-4.png" alt="" />
         </div>
         <div class="col-5">
-          <img src="/diplomnaya_rabota/img/logo-5.png" alt="" />
+          <img src="/diplomnaya_rabota/img/partners_logo-5.png" alt="" />
         </div>
       </div>
     </div>
     <div class="my-container">
       <div class="my-footer">
-        <ul class="my-footer-links">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">How it Works</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+        <ul class="my-footer-links-wrap">
+          <li><a class="my-footer-link" href="#">About Us</a></li>
+          <li><a class="my-footer-link" href="#">How it Works</a></li>
+          <li><a class="my-footer-link" href="#">FAQ</a></li>
+          <li><a class="my-footer-link" href="#">Contact Us</a></li>
+          <li><a class="my-footer-link" href="#">Privacy Policy</a></li>
         </ul>
         <div>
-          <img src="/diplomnaya_rabota/img/Group 17.png" alt="" />
+          <img src="/diplomnaya_rabota/img/footer-logo.png" alt="" />
         </div>
       </div>
     </div>
