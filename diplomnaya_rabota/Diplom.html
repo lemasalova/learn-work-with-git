@@ -55,8 +55,12 @@
       height: 18px;
       border: 0;
       background-color: white;
+      cursor: pointer;
+      transition: all 0.3s;
     }
-
+    .my-header-button-icon:hover {
+      opacity: 0.1;
+    }
     /* Блок Херо */
     .my-hero-title {
       font-family: "New York Extra Large";
@@ -108,12 +112,13 @@
       line-height: 124%;
       color: #000000;
 
-      margin: 64px;
-      margin-bottom: 0;
       max-width: 535px;
 
-      margin-left: auto;
+      margin-top: 64px;
       margin-right: auto;
+      margin-bottom: 0;
+      margin-left: auto;
+
       text-align: left;
     }
     .my-catalog-title-wrap {
@@ -128,15 +133,12 @@
       margin-top: 40px;
       display: flex;
     }
-
     .my-catalog-content-img-wrap {
       margin-right: 40px;
     }
-
     .my-catalog-content-img-wrap:last-child {
       margin-right: 0;
     }
-
     .my-catalog-content-img {
       width: 100%;
     }
@@ -149,7 +151,7 @@
       line-height: 124%;
       color: #000000;
 
-      margin: 64px;
+      margin-top: 64px;
       margin-right: 0;
       margin-bottom: 0;
       margin-left: 0;
@@ -242,7 +244,6 @@
       display: flex;
       justify-content: space-between;
     }
-
     .my-archmove-content {
       margin-top: 64px;
       display: flex;
@@ -270,7 +271,6 @@
       margin-top: 64px;
       justify-content: center;
     }
-
     .my-partners-tatle {
       font-family: "New York Extra Large";
       font-style: normal;
@@ -311,12 +311,10 @@
       margin-right: auto;
       max-width: 1110px;
     }
-
     .my-standard-inner {
       padding-top: 64px;
       padding-bottom: 40px;
     }
-
     .my-button {
       padding: 8px 32px;
       background: #fd665e;
@@ -327,6 +325,7 @@
     }
   </style>
   <body>
+    <!-- --------------Header start---------------- -->
     <div class="my-container">
       <div class="my-header">
         <div class="my-header-left-side">
@@ -365,6 +364,7 @@
         </nav>
       </div>
     </div>
+    <!-- --------------Header end------------------ -->
 
     <div class="my-container my-standard-inner">
       <h1 class="my-hero-title">
@@ -391,6 +391,7 @@
         </div>
       </div>
     </div>
+
     <div class="my-container my-standard-inner">
       <div class="my-catalog-title-wrap">
         <h2 class="my-catalog-title">
@@ -441,6 +442,7 @@
         </div>
       </div>
     </div>
+
     <div class="my-container my-standard-inner">
       <h3 class="my-benefits-title">
         Build your needs <br />
@@ -504,7 +506,7 @@
         </div>
       </div>
     </div>
-    <!-- Переделать контейнер -->
+
     <div class="my-container my-standard-inner">
       <h4 class="my-reviews-title">
         Sound Too Good <br />
@@ -537,6 +539,7 @@
         </div>
       </div>
     </div>
+
     <div class="my-container my-standard-inner">
       <div class="my-archmove-content">
         <div class="my-archmove-content-col-1">
@@ -556,6 +559,7 @@
         </div>
       </div>
     </div>
+
     <div class="my-container my-standard-inner">
       <h6 class="my-partners-tatle">Our Partners</h6>
       <div class="my-partners-content">
@@ -576,6 +580,7 @@
         </div>
       </div>
     </div>
+
     <div class="my-container">
       <div class="my-footer">
         <ul class="my-footer-links-wrap">
